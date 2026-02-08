@@ -1,0 +1,98 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "9ac36e3e-9819-419e-9933-827aedf97747",
+  "location" : "file:///home/jovyan/data/warehouse/blog/orders",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1755343605239,
+  "last-column-id" : 6,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "order_id",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 2,
+      "name" : "customer_id",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 3,
+      "name" : "product_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "order_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 5,
+      "name" : "amount",
+      "required" : false,
+      "type" : "decimal(10, 2)"
+    }, {
+      "id" : 6,
+      "name" : "status",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ {
+      "name" : "order_date",
+      "transform" : "identity",
+      "source-id" : 4,
+      "field-id" : 1000
+    } ]
+  } ],
+  "last-partition-id" : 1000,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "jovyan",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 7751379435523918486,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 7751379435523918486,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 7751379435523918486,
+    "timestamp-ms" : 1755343605239,
+    "summary" : {
+      "operation" : "delete",
+      "spark.app.id" : "local-1755343508997",
+      "changed-partition-count" : "0",
+      "total-records" : "0",
+      "total-files-size" : "0",
+      "total-data-files" : "0",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders/metadata/snap-7751379435523918486-1-0e4581dc-677c-48fc-93da-9c6cbdc0b5d9.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1755343605239,
+    "snapshot-id" : 7751379435523918486
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1755343523606,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders/metadata/v1.metadata.json"
+  } ]
+}

@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  # 가벼운 기본 Jupyter
+  jupyter:
+    image: jupyter/pyspark-notebook:python-3.10  # 훨씬 가벼움 (~100MB)
+    container_name: iceberg-jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=iceberg
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./data:/home/jovyan/data
+    networks:
+      - iceberg-net
+
+  # MinIO
+  minio:
+    image: minio/minio:latest
+    container_name: iceberg-minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password123
+    command: server /data --console-address ":9001"
+    volumes:
+      - ./minio-data:/data
+    networks:
+      - iceberg-net
+
+networks:
+  iceberg-net:
+    driver: bridge

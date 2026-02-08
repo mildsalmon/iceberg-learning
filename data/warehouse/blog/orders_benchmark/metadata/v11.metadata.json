@@ -1,0 +1,357 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "ea15c75b-baef-40b8-b545-6c30934ac874",
+  "location" : "file:///home/jovyan/data/warehouse/blog/orders_benchmark",
+  "last-sequence-number" : 10,
+  "last-updated-ms" : 1755345206014,
+  "last-column-id" : 6,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "order_id",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 2,
+      "name" : "customer_id",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 3,
+      "name" : "product_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "order_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 5,
+      "name" : "amount",
+      "required" : false,
+      "type" : "decimal(10, 2)"
+    }, {
+      "id" : 6,
+      "name" : "status",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ {
+      "name" : "order_date",
+      "transform" : "identity",
+      "source-id" : 4,
+      "field-id" : 1000
+    } ]
+  } ],
+  "last-partition-id" : 1000,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "jovyan",
+    "write.target-file-size-bytes" : "134217728",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 5175402725350996259,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 5175402725350996259,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 6517338362148293055,
+    "timestamp-ms" : 1755345182686,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "341",
+      "added-records" : "1000",
+      "added-files-size" : "651609",
+      "changed-partition-count" : "341",
+      "total-records" : "1000",
+      "total-files-size" : "651609",
+      "total-data-files" : "341",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-6517338362148293055-1-1665e508-953d-4140-9de8-8b7b9b253a3f.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 6425997724733845630,
+    "parent-snapshot-id" : 6517338362148293055,
+    "timestamp-ms" : 1755345195820,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "10",
+      "added-records" : "10",
+      "added-files-size" : "18254",
+      "changed-partition-count" : "10",
+      "total-records" : "1010",
+      "total-files-size" : "669863",
+      "total-data-files" : "351",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-6425997724733845630-1-bd8239f6-8729-4e2d-903b-5ec90644e52e.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 3,
+    "snapshot-id" : 1968130962955755845,
+    "parent-snapshot-id" : 6425997724733845630,
+    "timestamp-ms" : 1755345196787,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "46",
+      "added-records" : "50",
+      "added-files-size" : "83948",
+      "changed-partition-count" : "46",
+      "total-records" : "1060",
+      "total-files-size" : "753811",
+      "total-data-files" : "397",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-1968130962955755845-1-aa3fa825-da1c-4a61-9a2d-a6825d031900.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 4,
+    "snapshot-id" : 2874832373628017980,
+    "parent-snapshot-id" : 1968130962955755845,
+    "timestamp-ms" : 1755345198265,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "86",
+      "added-records" : "100",
+      "added-files-size" : "156661",
+      "changed-partition-count" : "86",
+      "total-records" : "1160",
+      "total-files-size" : "910472",
+      "total-data-files" : "483",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-2874832373628017980-1-290f8fa6-8222-4ba1-b547-67f942686f96.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 5,
+    "snapshot-id" : 345775492396507860,
+    "parent-snapshot-id" : 2874832373628017980,
+    "timestamp-ms" : 1755345201382,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "156",
+      "added-records" : "200",
+      "added-files-size" : "285417",
+      "changed-partition-count" : "156",
+      "total-records" : "1360",
+      "total-files-size" : "1195889",
+      "total-data-files" : "639",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-345775492396507860-1-149b477e-9ffa-473c-9e73-8a5eb96a5742.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 6,
+    "snapshot-id" : 4720701414874757852,
+    "parent-snapshot-id" : 345775492396507860,
+    "timestamp-ms" : 1755345202516,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "16",
+      "deleted-data-files" : "54",
+      "added-records" : "31",
+      "deleted-records" : "85",
+      "added-files-size" : "29734",
+      "removed-files-size" : "99686",
+      "changed-partition-count" : "51",
+      "total-records" : "1306",
+      "total-files-size" : "1125937",
+      "total-data-files" : "601",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-4720701414874757852-1-8f1b9c85-508b-4604-8030-382b1dabbf80.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 7,
+    "snapshot-id" : 5400911160633589371,
+    "parent-snapshot-id" : 4720701414874757852,
+    "timestamp-ms" : 1755345203239,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "19",
+      "deleted-data-files" : "25",
+      "added-records" : "51",
+      "deleted-records" : "76",
+      "added-files-size" : "35981",
+      "removed-files-size" : "47651",
+      "changed-partition-count" : "25",
+      "total-records" : "1281",
+      "total-files-size" : "1114267",
+      "total-data-files" : "595",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-5400911160633589371-1-6dcbf6c0-47a7-4eb3-94b7-55c24836cf1c.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 8,
+    "snapshot-id" : 9011478328218364450,
+    "parent-snapshot-id" : 5400911160633589371,
+    "timestamp-ms" : 1755345203425,
+    "summary" : {
+      "operation" : "delete",
+      "spark.app.id" : "local-1755344990596",
+      "deleted-data-files" : "1",
+      "deleted-records" : "1",
+      "removed-files-size" : "1800",
+      "changed-partition-count" : "1",
+      "total-records" : "1280",
+      "total-files-size" : "1112467",
+      "total-data-files" : "594",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-9011478328218364450-1-883d28c7-140c-440b-949c-a333bb20c0d9.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 9,
+    "snapshot-id" : 3692656530419954928,
+    "parent-snapshot-id" : 9011478328218364450,
+    "timestamp-ms" : 1755345203855,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "2",
+      "deleted-data-files" : "2",
+      "added-records" : "9",
+      "deleted-records" : "9",
+      "added-files-size" : "3956",
+      "removed-files-size" : "4000",
+      "changed-partition-count" : "2",
+      "total-records" : "1280",
+      "total-files-size" : "1112423",
+      "total-data-files" : "594",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-3692656530419954928-1-78402a42-a602-40c7-8efc-00d55d4b1087.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 10,
+    "snapshot-id" : 5175402725350996259,
+    "parent-snapshot-id" : 3692656530419954928,
+    "timestamp-ms" : 1755345206014,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1755344990596",
+      "added-data-files" : "79",
+      "deleted-data-files" : "82",
+      "added-records" : "254",
+      "deleted-records" : "254",
+      "added-files-size" : "151613",
+      "removed-files-size" : "156924",
+      "changed-partition-count" : "79",
+      "total-records" : "1280",
+      "total-files-size" : "1107112",
+      "total-data-files" : "591",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/snap-5175402725350996259-1-a930fc2b-5bbf-45ae-b333-3d67986d654c.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1755345182686,
+    "snapshot-id" : 6517338362148293055
+  }, {
+    "timestamp-ms" : 1755345195820,
+    "snapshot-id" : 6425997724733845630
+  }, {
+    "timestamp-ms" : 1755345196787,
+    "snapshot-id" : 1968130962955755845
+  }, {
+    "timestamp-ms" : 1755345198265,
+    "snapshot-id" : 2874832373628017980
+  }, {
+    "timestamp-ms" : 1755345201382,
+    "snapshot-id" : 345775492396507860
+  }, {
+    "timestamp-ms" : 1755345202516,
+    "snapshot-id" : 4720701414874757852
+  }, {
+    "timestamp-ms" : 1755345203239,
+    "snapshot-id" : 5400911160633589371
+  }, {
+    "timestamp-ms" : 1755345203425,
+    "snapshot-id" : 9011478328218364450
+  }, {
+    "timestamp-ms" : 1755345203855,
+    "snapshot-id" : 3692656530419954928
+  }, {
+    "timestamp-ms" : 1755345206014,
+    "snapshot-id" : 5175402725350996259
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1755345172801,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345182686,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v2.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345195820,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v3.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345196787,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v4.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345198265,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v5.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345201382,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v6.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345202516,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v7.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345203239,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v8.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345203425,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v9.metadata.json"
+  }, {
+    "timestamp-ms" : 1755345203855,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/blog/orders_benchmark/metadata/v10.metadata.json"
+  } ]
+}
