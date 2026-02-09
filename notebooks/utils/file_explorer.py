@@ -129,6 +129,130 @@ def total_size(path, ext=None):
     return total
 
 
+def show_metadata_hierarchy(table_path):
+    """Iceberg 메타데이터 계층 구조를 시각화한다.
+
+    metadata.json → manifest list → manifest files → data files
+    전체 체인을 트리 형태로 출력한다.
+
+    Usage::
+
+        from utils.file_explorer import show_metadata_hierarchy
+        show_metadata_hierarchy("/home/jovyan/data/warehouse/lab/my_table")
+    """
+    import json
+
+    try:
+        import fastavro
+    except ImportError:
+        print("fastavro가 필요합니다: pip install fastavro")
+        return
+
+    def _strip_uri(p):
+        return p.replace("file:///", "/").replace("file:/", "/")
+
+    STATUS = {0: "EXISTING", 1: "ADDED", 2: "DELETED"}
+
+    # 1. version-hint → metadata.json
+    hint = os.path.join(table_path, "metadata", "version-hint.text")
+    if not os.path.exists(hint):
+        print("(테이블이 아직 생성되지 않았습니다)")
+        return
+
+    with open(hint) as f:
+        ver = f.read().strip()
+
+    with open(os.path.join(table_path, "metadata", f"v{ver}.metadata.json")) as f:
+        meta = json.load(f)
+
+    snap_id = meta.get("current-snapshot-id")
+    if snap_id is None:
+        print(f"v{ver}.metadata.json  (스냅샷 없음)")
+        return
+
+    snap = next(
+        (s for s in meta.get("snapshots", []) if s["snapshot-id"] == snap_id), None
+    )
+    if not snap:
+        print("현재 스냅샷을 찾을 수 없습니다.")
+        return
+
+    ml_path = _strip_uri(snap["manifest-list"])
+    operation = snap.get("summary", {}).get("operation", "?")
+
+    # 2. Read manifest list (snap-*.avro)
+    with open(ml_path, "rb") as f:
+        manifests = list(fastavro.reader(f))
+
+    # 3. Print tree
+    print(f"v{ver}.metadata.json  (operation: {operation})")
+    print("│")
+    print(f"└─▶ {os.path.basename(ml_path)}  [Manifest List]")
+
+    for mi, m in enumerate(manifests):
+        m_path = _strip_uri(m["manifest_path"])
+        m_name = os.path.basename(m_path)
+        m_last = mi == len(manifests) - 1
+        m_content = m.get("content", 0)
+
+        # Build stats string
+        if m_content == 0:  # DATA manifest
+            keys = [
+                ("added_data_files_count", "ADDED"),
+                ("existing_data_files_count", "EXISTING"),
+                ("deleted_data_files_count", "DELETED"),
+            ]
+        else:  # DELETES manifest
+            keys = [
+                ("added_delete_files_count", "ADDED"),
+                ("existing_delete_files_count", "EXISTING"),
+                ("deleted_delete_files_count", "DELETED"),
+            ]
+        parts = []
+        for key, label in keys:
+            n = m.get(key, 0) or 0
+            if n > 0:
+                parts.append(f"{n} {label}")
+        stats = ", ".join(parts) if parts else "empty"
+        type_label = "DATA" if m_content == 0 else "DELETES"
+
+        mc = "└─▶" if m_last else "├─▶"
+        indent = "        " if m_last else "    │   "
+
+        print(f"    {mc} {m_name}  [Manifest — {type_label}: {stats}]")
+
+        # Read manifest file entries
+        try:
+            with open(m_path, "rb") as f:
+                entries = list(fastavro.reader(f))
+        except Exception:
+            print(f"    {indent}(읽기 실패)")
+            continue
+
+        for ei, entry in enumerate(entries):
+            e_last = ei == len(entries) - 1
+            status = STATUS.get(entry.get("status", 0), "?")
+
+            df = entry.get("data_file", {})
+            fp = _strip_uri(df.get("file_path", "?"))
+            rc = df.get("record_count", "?")
+            fc = df.get("content", 0)
+
+            # Shorten path: keep data/partition/filename
+            if "/data/" in fp:
+                fp = "data/" + fp.split("/data/", 1)[1]
+
+            ec = "└── " if e_last else "├── "
+
+            tag = ""
+            if fc == 1:
+                tag = "  [DELETE FILE]"
+            elif fc == 2:
+                tag = "  [EQ DELETE]"
+
+            print(f"    {indent}{ec}{fp}  ({rc}행, {status}){tag}")
+
+
 def _fmt_size(size):
     if size >= 1024 * 1024:
         return f"{size / 1024 / 1024:.1f} MB"
