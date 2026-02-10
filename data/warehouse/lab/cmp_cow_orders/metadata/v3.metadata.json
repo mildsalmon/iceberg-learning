@@ -1,9 +1,9 @@
 {
   "format-version" : 2,
-  "table-uuid" : "77849282-8977-4fa5-9fc6-5b3fca39437c",
+  "table-uuid" : "85cbfd3e-be2b-4858-b744-35592a31a6f8",
   "location" : "file:///home/jovyan/data/warehouse/lab/cmp_cow_orders",
   "last-sequence-number" : 2,
-  "last-updated-ms" : 1770678943747,
+  "last-updated-ms" : 1770720282763,
   "last-column-id" : 6,
   "current-schema-id" : 0,
   "schemas" : [ {
@@ -64,71 +64,71 @@
     "write.delete.mode" : "copy-on-write",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 5278229954013775918,
+  "current-snapshot-id" : 6307199624804126826,
   "refs" : {
     "main" : {
-      "snapshot-id" : 5278229954013775918,
+      "snapshot-id" : 6307199624804126826,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 1571425460755231041,
-    "timestamp-ms" : 1770678942780,
+    "snapshot-id" : 2678696525839283789,
+    "timestamp-ms" : 1770720279384,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1770678933695",
+      "spark.app.id" : "local-1770720251458",
       "added-data-files" : "3",
-      "added-records" : "2000",
-      "added-files-size" : "23906",
+      "added-records" : "500000",
+      "added-files-size" : "3499954",
       "changed-partition-count" : "3",
-      "total-records" : "2000",
-      "total-files-size" : "23906",
+      "total-records" : "500000",
+      "total-files-size" : "3499954",
       "total-data-files" : "3",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "file:/home/jovyan/data/warehouse/lab/cmp_cow_orders/metadata/snap-1571425460755231041-1-f3fd6819-07f6-46a2-9ac6-55d9c21b61ff.avro",
+    "manifest-list" : "file:/home/jovyan/data/warehouse/lab/cmp_cow_orders/metadata/snap-2678696525839283789-1-33eff80a-ec43-44cf-a6b4-7e0f178788b1.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 2,
-    "snapshot-id" : 5278229954013775918,
-    "parent-snapshot-id" : 1571425460755231041,
-    "timestamp-ms" : 1770678943747,
+    "snapshot-id" : 6307199624804126826,
+    "parent-snapshot-id" : 2678696525839283789,
+    "timestamp-ms" : 1770720282763,
     "summary" : {
       "operation" : "overwrite",
-      "spark.app.id" : "local-1770678933695",
+      "spark.app.id" : "local-1770720251458",
       "added-data-files" : "3",
       "deleted-data-files" : "3",
-      "added-records" : "2000",
-      "deleted-records" : "2000",
-      "added-files-size" : "23703",
-      "removed-files-size" : "23906",
+      "added-records" : "500000",
+      "deleted-records" : "500000",
+      "added-files-size" : "3487511",
+      "removed-files-size" : "3499954",
       "changed-partition-count" : "3",
-      "total-records" : "2000",
-      "total-files-size" : "23703",
+      "total-records" : "500000",
+      "total-files-size" : "3487511",
       "total-data-files" : "3",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "file:/home/jovyan/data/warehouse/lab/cmp_cow_orders/metadata/snap-5278229954013775918-1-42f7346d-c6d9-4980-9f98-a5879f9c5cb8.avro",
+    "manifest-list" : "file:/home/jovyan/data/warehouse/lab/cmp_cow_orders/metadata/snap-6307199624804126826-1-9c1c6bb8-eb0e-4e10-9c6f-6c0ed049f256.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1770678942780,
-    "snapshot-id" : 1571425460755231041
+    "timestamp-ms" : 1770720279384,
+    "snapshot-id" : 2678696525839283789
   }, {
-    "timestamp-ms" : 1770678943747,
-    "snapshot-id" : 5278229954013775918
+    "timestamp-ms" : 1770720282763,
+    "snapshot-id" : 6307199624804126826
   } ],
   "metadata-log" : [ {
-    "timestamp-ms" : 1770678936491,
+    "timestamp-ms" : 1770720254168,
     "metadata-file" : "file:/home/jovyan/data/warehouse/lab/cmp_cow_orders/metadata/v1.metadata.json"
   }, {
-    "timestamp-ms" : 1770678942780,
+    "timestamp-ms" : 1770720279384,
     "metadata-file" : "file:/home/jovyan/data/warehouse/lab/cmp_cow_orders/metadata/v2.metadata.json"
   } ]
 }

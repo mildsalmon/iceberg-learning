@@ -1,9 +1,9 @@
 {
   "format-version" : 2,
-  "table-uuid" : "ad792976-3dba-4c27-ac29-01ddb0460ce2",
+  "table-uuid" : "ded35788-1b33-4fcc-8068-f1595c45b341",
   "location" : "file:///home/jovyan/data/warehouse/lab/cmp_mor_orders",
   "last-sequence-number" : 0,
-  "last-updated-ms" : 1770678936806,
+  "last-updated-ms" : 1770720254264,
   "last-column-id" : 6,
   "current-schema-id" : 0,
   "schemas" : [ {

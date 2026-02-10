@@ -1,9 +1,9 @@
 {
   "format-version" : 2,
-  "table-uuid" : "77849282-8977-4fa5-9fc6-5b3fca39437c",
+  "table-uuid" : "85cbfd3e-be2b-4858-b744-35592a31a6f8",
   "location" : "file:///home/jovyan/data/warehouse/lab/cmp_cow_orders",
   "last-sequence-number" : 0,
-  "last-updated-ms" : 1770678936491,
+  "last-updated-ms" : 1770720254168,
   "last-column-id" : 6,
   "current-schema-id" : 0,
   "schemas" : [ {
