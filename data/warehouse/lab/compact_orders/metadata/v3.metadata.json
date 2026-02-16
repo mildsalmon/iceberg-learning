@@ -1,0 +1,128 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "f895d877-726e-4430-82e9-ce670fbd6963",
+  "location" : "file:///home/jovyan/data/warehouse/lab/compact_orders",
+  "last-sequence-number" : 2,
+  "last-updated-ms" : 1771199227768,
+  "last-column-id" : 6,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "order_id",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 2,
+      "name" : "customer_id",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 3,
+      "name" : "product_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "order_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 5,
+      "name" : "amount",
+      "required" : false,
+      "type" : "decimal(10, 2)"
+    }, {
+      "id" : 6,
+      "name" : "status",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ {
+      "name" : "order_date_month",
+      "transform" : "month",
+      "source-id" : 4,
+      "field-id" : 1000
+    } ]
+  } ],
+  "last-partition-id" : 1000,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "jovyan",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 7591694477598236001,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 7591694477598236001,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 4322983968544901172,
+    "timestamp-ms" : 1771199227099,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1771199217667",
+      "added-data-files" : "3",
+      "added-records" : "10",
+      "added-files-size" : "5685",
+      "changed-partition-count" : "3",
+      "total-records" : "10",
+      "total-files-size" : "5685",
+      "total-data-files" : "3",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/lab/compact_orders/metadata/snap-4322983968544901172-1-02bfb273-65d8-4729-929f-bc3c1cef0c43.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 7591694477598236001,
+    "parent-snapshot-id" : 4322983968544901172,
+    "timestamp-ms" : 1771199227768,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1771199217667",
+      "added-data-files" : "3",
+      "added-records" : "10",
+      "added-files-size" : "5687",
+      "changed-partition-count" : "3",
+      "total-records" : "20",
+      "total-files-size" : "11372",
+      "total-data-files" : "6",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/home/jovyan/data/warehouse/lab/compact_orders/metadata/snap-7591694477598236001-1-d593bc6e-bbd0-438c-9275-7eacfc4ab374.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1771199227099,
+    "snapshot-id" : 4322983968544901172
+  }, {
+    "timestamp-ms" : 1771199227768,
+    "snapshot-id" : 7591694477598236001
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1771199222958,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/lab/compact_orders/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1771199227099,
+    "metadata-file" : "file:/home/jovyan/data/warehouse/lab/compact_orders/metadata/v2.metadata.json"
+  } ]
+}
