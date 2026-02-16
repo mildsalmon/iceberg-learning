@@ -15,9 +15,7 @@ def show_tree(path, prefix="", max_depth=5, _depth=0):
         return
 
     try:
-        items = sorted(
-            item for item in os.listdir(path) if not item.startswith(".")
-        )
+        items = sorted(item for item in os.listdir(path) if not item.startswith("."))
     except PermissionError:
         return
 
@@ -101,9 +99,7 @@ def diff_tree(before, after):
         for f in changed:
             print(f"    ~ {f}  ({_fmt_size(before[f])} -> {_fmt_size(after[f])})")
 
-    print(
-        f"\n요약: +{len(added)} 추가, -{len(removed)} 삭제, ~{len(changed)} 변경"
-    )
+    print(f"\n요약: +{len(added)} 추가, -{len(removed)} 삭제, ~{len(changed)} 변경")
 
 
 def count_files(path, ext=".parquet"):

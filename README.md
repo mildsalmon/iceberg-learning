@@ -14,13 +14,27 @@ Apache Iceberg의 아키텍처와 성능 최적화를 단계적으로 실습하�
 | Iceberg | 1.4.3 (iceberg-spark-runtime JAR) |
 | Catalog | Hadoop (로컬 파일시스템) |
 | Jupyter | pyspark-notebook (Docker) |
-| MinIO | latest (S3 호환 스토리지) |
 
 ```bash
 docker-compose up -d
 # Jupyter: http://localhost:8888 (token: iceberg)
-# MinIO Console: http://localhost:9001 (admin / password123)
 ```
+
+---
+
+## First-Run Checklist (필수)
+
+아래 순서를 **반드시** 지켜서 실행합니다.
+
+1. `docker-compose up -d`로 컨테이너를 띄운다.
+2. `notebooks/0_setup/01-environment-setup.ipynb`를 처음부터 끝까지 실행한다.
+3. 다음 조건이 모두 만족되는지 확인한다.
+   - 패키지 설치 셀 성공 (`pyspark`, `pyarrow`, `fastavro`, `requests` 등)
+   - Iceberg JAR 다운로드 완료
+   - `create_spark_session()` 호출 성공
+4. 위 검증이 끝난 뒤에만 `1_fundamentals` 이후 노트북을 실행한다.
+
+> `1_fundamentals`부터 바로 실행하면 JAR/패키지 미설치로 실패할 수 있습니다.
 
 ---
 
@@ -215,9 +229,6 @@ iceberg/
 │   │   └── 04-advanced-tuning.ipynb
 │   └── 5_practice/
 │       └── 01-end-to-end-scenario.ipynb
-├── data/
-│   └── warehouse/
-├── minio-data/
-├── conf/
-└── jars/
+└── data/
+    └── warehouse/
 ```
